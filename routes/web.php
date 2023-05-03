@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnagraficaController;
+use App\Http\Controllers\PdfBollettinoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,27 @@ use App\Http\Controllers\AnagraficaController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('list',[AnagraficaController::class,'list']);
+Route::get('/',[AnagraficaController::class,'list']);
+
+Route::view('add', 'anagrafica.AddAnagrafica');
+Route::POST('add',[AnagraficaController::class,'AddAnagrafica']);
+Auth::routes();
+
+
+Route::get('delete/{id}',[AnagraficaController::class,'delete']);
+
+Route::get('edit/{id}',[AnagraficaController::class,'showData']);
+Route::post('edit',[AnagraficaController::class,'edit']);
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('mod',[AnagraficaController::class,'operateDB']);
+
+Route::get('pdfBollettini', [App\Http\Controllers\PdfBollettinoController::class, 'PdfBollettini']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
