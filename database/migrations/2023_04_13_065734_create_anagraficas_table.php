@@ -29,8 +29,8 @@ return new class extends Migration
             $table->string('partira_iva',55)->nullable();
             $table->string('telefono',55)->nullable();
             $table->string('cellulare',55)->nullable();
-            $table->string('tipo_socio',255)->default(0);
-            $table->string('tipo_consegna',55)->nullable();
+            $table->integer('id_tipo_socio')->default(0);
+            $table->integer('id_tipo_consegna')->default(0);
             $table->integer('published')->default(0);
             $table->text('description');
             $table->timestamps();
