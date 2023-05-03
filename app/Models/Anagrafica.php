@@ -9,5 +9,6 @@ class Anagrafica extends Model
 {
     use HasFactory;
     public $timestamps=false;
+    
 }
 
